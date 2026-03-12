@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjkno7ck1v6op"]
+
+[ext_resource type="Texture2D" uid="uid://1gy62gqv2ed1" path="res://Resources/Images/ThoughBubble.png" id="1_2v0bx"]
+
+[node name="ThoughtBubble" type="TextureRect"]
+offset_right = 800.0
+offset_bottom = 800.0
+texture = ExtResource("1_2v0bx")

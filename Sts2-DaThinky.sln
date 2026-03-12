@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sts2-Template", "Sts2-Template.csproj", "{4D4D1F14-3E4D-4216-894C-2440216BB07F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sts2-DaThinky", "Sts2-DaThinky.csproj", "{4D4D1F14-3E4D-4216-894C-2440216BB07F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,7 +1,7 @@
 {
-  "pck_name": "Sts2-Template",
-  "name": "Sts2 Modding Template",
+  "pck_name": "DaThinky",
+  "name": "DaThinky",
   "author": "dandylion1740",
-  "description": "Dandy's personal modding template",
+  "description": "Adds helpful tools",
   "version": "0.0.1"
 }
