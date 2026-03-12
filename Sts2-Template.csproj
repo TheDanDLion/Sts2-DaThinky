@@ -1,0 +1,31 @@
+﻿<Project Sdk="Godot.NET.Sdk/4.6.1">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <RootNamespace>Sts2_Template</RootNamespace>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Reference Include="0Harmony">
+        <HintPath>..\..\.local\share\Steam\steamapps\common\Slay the Spire 2\data_sts2_linuxbsd_x86_64\0Harmony.dll</HintPath>
+      </Reference>
+      <Reference Include="BaseLib">
+        <HintPath>..\..\.local\share\Steam\steamapps\common\Slay the Spire 2\mods\BaseLib.dll</HintPath>
+      </Reference>
+      <Reference Include="sts2">
+        <HintPath>..\..\.local\share\Steam\steamapps\common\Slay the Spire 2\data_sts2_linuxbsd_x86_64\sts2.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Update="GodotSharp" Version="4.7.0-dev.2" />
+      <PackageReference Include="Lib.Harmony" Version="2.4.2" />
+    </ItemGroup>
+
+    <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+      <Exec Command="cp &quot;$(TargetPath)&quot; &quot;$HOME/.local/share/Steam/steamapps/common/Slay the Spire 2/mods/&quot;" />
+    </Target>
+
+</Project>
