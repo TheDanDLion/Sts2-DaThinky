@@ -1,6 +1,6 @@
 using BaseLib.Config;
 
-namespace Sts2_DaThinky;
+namespace DaThinky;
 
 public class Config : SimpleModConfig
 {
