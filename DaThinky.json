@@ -1,0 +1,11 @@
+{
+  "id": "DaThinky",
+  "name": "DaThinky",
+  "author": "dandylion1740",
+  "description": "Adds helpful tools, right now it's just a calculator",
+  "version": "v0.0.1",
+  "has_pck": true,
+  "has_dll": true,
+  "dependencies": [],
+  "affects_gameplay": false
+}

@@ -1,7 +1,8 @@
 using Godot;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Modding;
-using MegaCrit.Sts2.Core.Nodes.Screens.MainMenu;
+
+using static DaThinky.Patches.MainMenuPatch;
 
 namespace DaThinky;
 
@@ -19,17 +20,5 @@ public class Program
 
 		Harmony harmony = new(ModId);
 		harmony.PatchAll();
-	}
-}
-
-[HarmonyPatch(typeof(NMainMenu), nameof(NMainMenu._Ready))]
-public class MainMenuPatch
-{
-	[HarmonyPostfix]
-	static void AddThoughtBubble(NMainMenu __instance)
-	{
-		PackedScene scene = ResourceLoader.Load<PackedScene>("res://Scenes/ThoughtBubble.tscn");
-		TextureRect bubble = scene.Instantiate<TextureRect>();
-		__instance.AddChild(bubble);
 	}
 }
