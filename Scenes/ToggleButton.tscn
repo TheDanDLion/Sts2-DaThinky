@@ -1,20 +1,11 @@
-[gd_scene format=3 uid="uid://nvj7bupg71pj"]
+[gd_scene load_steps=2 format=3 uid="uid://nvj7bupg71pj"]
 
-[node name="ToggleButton" type="Button"]
-custom_minimum_size = Vector2(200, 75)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[ext_resource type="Texture2D" uid="uid://by7f0oe422jdk" path="res://Resources/Images/calculator.png" id="1_x1s8e"]
 
-[node name="Label" type="Label" parent="."]
+[node name="ToggleButton" type="TextureButton"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Toggle Calculator"
-horizontal_alignment = 1
-vertical_alignment = 1
+offset_right = 53.0
+offset_bottom = 48.0
+texture_normal = ExtResource("1_x1s8e")
+ignore_texture_size = true
+stretch_mode = 0

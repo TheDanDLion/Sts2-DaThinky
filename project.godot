@@ -16,7 +16,7 @@ config/icon="res://icon.svg"
 
 [dotnet]
 
-project/assembly_name="Sts2-DaThinky"
+project/assembly_name="DaThinky"
 
 [rendering]
 

@@ -2,8 +2,6 @@ using Godot;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Modding;
 
-using static DaThinky.Patches.MainMenuPatch;
-
 namespace DaThinky;
 
 [ModInitializer(nameof(Initialize))]
@@ -15,9 +13,6 @@ public class Program
 
 	public static void Initialize()
 	{
-		LogWindow logWindow = new();
-		((SceneTree)Engine.GetMainLoop()).Root.CallDeferred("add_child", logWindow);
-
 		Harmony harmony = new(ModId);
 		harmony.PatchAll();
 	}

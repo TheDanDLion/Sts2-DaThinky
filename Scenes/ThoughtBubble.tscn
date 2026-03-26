@@ -1,141 +1,208 @@
-[gd_scene load_steps=2 format=3 uid="uid://cjkno7ck1v6op"]
+[gd_scene load_steps=4 format=3 uid="uid://cjkno7ck1v6op"]
 
-[ext_resource type="Texture2D" uid="uid://1gy62gqv2ed1" path="res://Resources/Images/ThoughBubble.png" id="1_2v0bx"]
+[ext_resource type="Texture2D" uid="uid://xc6c6jg36e4o" path="res://Resources/Images/ThoughBubble1.png" id="1_a6o1i"]
+[ext_resource type="Texture2D" uid="uid://64nrh6gg86to" path="res://Resources/Images/ThoughBubble2.png" id="2_ppmkj"]
+[ext_resource type="Texture2D" uid="uid://cr1g6knukimuu" path="res://Resources/Images/ThoughBubble3.png" id="3_h4b8a"]
 
-[node name="ThoughtBubble" type="TextureRect"]
-offset_right = 442.60175
-offset_bottom = 352.0
-texture = ExtResource("1_2v0bx")
-expand_mode = 1
-flip_h = true
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="Control" type="Control" parent="."]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.25
-anchor_top = 0.3
-anchor_right = 0.8
-anchor_bottom = 0.7
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.802
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="ThoughtBubble" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -251.0
+offset_top = -200.0
+offset_right = 251.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_a6o1i")
+expand_mode = 2
+stretch_mode = 4
+flip_h = true
+
+[node name="ThoughtBubble2" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -251.0
+offset_top = -200.0
+offset_right = 251.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ppmkj")
+expand_mode = 2
+stretch_mode = 4
+flip_h = true
+
+[node name="ThoughtBubble3" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -251.0
+offset_top = -200.0
+offset_right = 251.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_h4b8a")
+expand_mode = 2
+stretch_mode = 4
+flip_h = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -117.25
+offset_top = -109.0
+offset_right = 159.0
+offset_bottom = 103.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CalculationLine" type="LineEdit" parent="Control/VBoxContainer"]
 layout_mode = 2
 
-[node name="CalculationLine" type="LineEdit" parent="MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="LeftParentheses" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="LeftParentheses" type="Button" parent="Control/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "("
 
-[node name="RightParentheses" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="RightParentheses" type="Button" parent="Control/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = ")"
 
-[node name="Modulo" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Modulo" type="Button" parent="Control/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "%"
 
-[node name="AC" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="AC" type="Button" parent="Control/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "AC"
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/VBoxContainer"]
 layout_mode = 2
 
-[node name="Seven" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="Seven" type="Button" parent="Control/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "7"
 
-[node name="Eight" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="Eight" type="Button" parent="Control/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "8"
 
-[node name="Nine" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="Nine" type="Button" parent="Control/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "9"
 
-[node name="Divide" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="Divide" type="Button" parent="Control/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "÷"
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="Control/VBoxContainer"]
 layout_mode = 2
 
-[node name="Four" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer3"]
+[node name="Four" type="Button" parent="Control/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "4"
 
-[node name="Five" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer3"]
+[node name="Five" type="Button" parent="Control/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "5"
 
-[node name="Six" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer3"]
+[node name="Six" type="Button" parent="Control/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "6"
 
-[node name="Multiply" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer3"]
+[node name="Multiply" type="Button" parent="Control/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "x"
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="HBoxContainer4" type="HBoxContainer" parent="Control/VBoxContainer"]
 layout_mode = 2
 
-[node name="One" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer4"]
+[node name="One" type="Button" parent="Control/VBoxContainer/HBoxContainer4"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "1"
 
-[node name="Two" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer4"]
+[node name="Two" type="Button" parent="Control/VBoxContainer/HBoxContainer4"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "2"
 
-[node name="Three" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer4"]
+[node name="Three" type="Button" parent="Control/VBoxContainer/HBoxContainer4"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "3"
 
-[node name="Minus" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer4"]
+[node name="Minus" type="Button" parent="Control/VBoxContainer/HBoxContainer4"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "-"
 
-[node name="HBoxContainer5" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="HBoxContainer5" type="HBoxContainer" parent="Control/VBoxContainer"]
 layout_mode = 2
 
-[node name="Zero" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer5"]
+[node name="Zero" type="Button" parent="Control/VBoxContainer/HBoxContainer5"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "0"
 
-[node name="Dot" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer5"]
+[node name="Dot" type="Button" parent="Control/VBoxContainer/HBoxContainer5"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "."
 
-[node name="Equals" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer5"]
+[node name="Equals" type="Button" parent="Control/VBoxContainer/HBoxContainer5"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "="
 
-[node name="Plus" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer5"]
+[node name="Plus" type="Button" parent="Control/VBoxContainer/HBoxContainer5"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "+"

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1gy62gqv2ed1"
-path="res://.godot/imported/ThoughBubble.png-4f8ed5bb9ef7f275e7a5f6604bb106f7.ctex"
+uid="uid://xc6c6jg36e4o"
+path="res://.godot/imported/ThoughBubble1.png-ae0659d594df46af1046f4d8192eb3a9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/Images/ThoughBubble.png"
-dest_files=["res://.godot/imported/ThoughBubble.png-4f8ed5bb9ef7f275e7a5f6604bb106f7.ctex"]
+source_file="res://Resources/Images/ThoughBubble1.png"
+dest_files=["res://.godot/imported/ThoughBubble1.png-ae0659d594df46af1046f4d8192eb3a9.ctex"]
 
 [params]
 
