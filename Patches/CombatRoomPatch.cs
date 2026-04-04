@@ -15,9 +15,9 @@ public static class CombatRoomPatch
 
         // Add the thought bubble scene.
         var thoughtBubbleScene = ResourceLoader.Load<PackedScene>("res://Scenes/ThoughtBubble.tscn");
-        var bubble = thoughtBubbleScene.Instantiate<TextureRect>();
-        // bubble.Visible = false;
-        bubble.Visible = true;
+        var bubble = thoughtBubbleScene.Instantiate<Control>();
+        bubble.Visible = false;
+        // bubble.Visible = true;
         __instance.AddChild(bubble);
         Log.LogMessage(LogLevel.Info, LogType.Generic, "Added thought bubble to combat room.");
 
