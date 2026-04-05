@@ -24,7 +24,7 @@ public partial class Equals : Button
 
 		var normalized = equation.Replace("x", "*").Replace("÷", "/");
 		// Append .0 to bare integers so Godot uses float division instead of integer division
-		var floated = Regex.Replace(normalized, @"\b(\d+)\b(?![\d.])", "$1.0");
+		var floated = Regex.Replace(normalized, @"(?<![\d.])(\d+)(?![\d.])", "$1.0");
 		var expression = new Expression();
 		if (expression.Parse(floated) != Error.Ok) return;
 
