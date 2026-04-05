@@ -14,6 +14,8 @@ public partial class ThoughtBubble : Control
 	private Control _dot2 = null!;
 	private Control _thoughtBubble = null!;
 	private Control _calculator = null!;
+
+	public bool JustSolved;
 	
 	public override void _Ready()
 	{

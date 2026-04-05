@@ -1,9 +1,17 @@
-[gd_scene load_steps=26 format=3 uid="uid://cjkno7ck1v6op"]
+[gd_scene load_steps=32 format=3 uid="uid://cjkno7ck1v6op"]
 
 [ext_resource type="Texture2D" uid="uid://xc6c6jg36e4o" path="res://Resources/Images/ThoughBubble1.png" id="1_a6o1i"]
 [ext_resource type="Script" uid="uid://cvod4hgewrmpr" path="res://Scenes/ThoughtBubble.cs" id="1_ppmkj"]
 [ext_resource type="Texture2D" uid="uid://64nrh6gg86to" path="res://Resources/Images/ThoughBubble2.png" id="2_ppmkj"]
 [ext_resource type="Texture2D" uid="uid://cr1g6knukimuu" path="res://Resources/Images/ThoughBubble3.png" id="3_h4b8a"]
+[ext_resource type="StyleBox" uid="uid://mumkm77nssqk" path="res://Themes/ThoughtBubble.tres" id="5_78lqr"]
+[ext_resource type="Script" uid="uid://bsckby0svwj7" path="res://Scenes/AddChar.cs" id="5_h4b8a"]
+[ext_resource type="Script" uid="uid://bm32xpic6y05" path="res://Scenes/AC.cs" id="6_wpoby"]
+[ext_resource type="Script" uid="uid://clb0x0qqx4uau" path="res://Scenes/Equals.cs" id="7_37s3n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s3s1w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tvu4m"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h4b8a"]
 
@@ -140,8 +148,15 @@ grow_vertical = 2
 theme_override_constants/separation = 5
 
 [node name="CalculationLine" type="LineEdit" parent="Position/Calculator"]
+unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 12
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = ExtResource("5_78lqr")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_s3s1w")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tvu4m")
+alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Position/Calculator"]
 layout_mode = 2
@@ -167,6 +182,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_8fwlo")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_sufgq")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_gy5ix")
 text = "("
+script = ExtResource("5_h4b8a")
 
 [node name="RightParentheses" type="Button" parent="Position/Calculator/HBoxContainer"]
 layout_mode = 2
@@ -188,6 +204,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_bbl2b")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_t1iav")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_glfdn")
 text = ")"
+script = ExtResource("5_h4b8a")
 
 [node name="Modulo" type="Button" parent="Position/Calculator/HBoxContainer"]
 layout_mode = 2
@@ -209,6 +226,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_bbl2b")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_t1iav")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_glfdn")
 text = "%"
+script = ExtResource("5_h4b8a")
 
 [node name="AC" type="Button" parent="Position/Calculator/HBoxContainer"]
 layout_mode = 2
@@ -230,6 +248,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_bbl2b")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_t1iav")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_glfdn")
 text = "AC"
+script = ExtResource("6_wpoby")
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Position/Calculator"]
 layout_mode = 2
@@ -255,6 +274,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_bbl2b")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_t1iav")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_glfdn")
 text = "7"
+script = ExtResource("5_h4b8a")
 
 [node name="Eight" type="Button" parent="Position/Calculator/HBoxContainer2"]
 layout_mode = 2
@@ -276,6 +296,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_bbl2b")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_t1iav")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_glfdn")
 text = "8"
+script = ExtResource("5_h4b8a")
 
 [node name="Nine" type="Button" parent="Position/Calculator/HBoxContainer2"]
 layout_mode = 2
@@ -297,6 +318,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_bbl2b")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_t1iav")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_glfdn")
 text = "9"
+script = ExtResource("5_h4b8a")
 
 [node name="Divide" type="Button" parent="Position/Calculator/HBoxContainer2"]
 layout_mode = 2
@@ -317,7 +339,8 @@ theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_q4yrx"
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_bbl2b")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_t1iav")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_glfdn")
-text = "÷"
+text = "/"
+script = ExtResource("5_h4b8a")
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="Position/Calculator"]
 layout_mode = 2
@@ -343,6 +366,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_bbl2b")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_t1iav")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_glfdn")
 text = "4"
+script = ExtResource("5_h4b8a")
 
 [node name="Five" type="Button" parent="Position/Calculator/HBoxContainer3"]
 layout_mode = 2
@@ -364,6 +388,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_bbl2b")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_t1iav")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_glfdn")
 text = "5"
+script = ExtResource("5_h4b8a")
 
 [node name="Six" type="Button" parent="Position/Calculator/HBoxContainer3"]
 layout_mode = 2
@@ -385,6 +410,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_bbl2b")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_t1iav")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_glfdn")
 text = "6"
+script = ExtResource("5_h4b8a")
 
 [node name="Multiply" type="Button" parent="Position/Calculator/HBoxContainer3"]
 layout_mode = 2
@@ -405,7 +431,8 @@ theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_q4yrx"
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_bbl2b")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_t1iav")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_glfdn")
-text = "x"
+text = "*"
+script = ExtResource("5_h4b8a")
 
 [node name="HBoxContainer4" type="HBoxContainer" parent="Position/Calculator"]
 layout_mode = 2
@@ -431,6 +458,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_bbl2b")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_t1iav")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_glfdn")
 text = "1"
+script = ExtResource("5_h4b8a")
 
 [node name="Two" type="Button" parent="Position/Calculator/HBoxContainer4"]
 layout_mode = 2
@@ -452,6 +480,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_bbl2b")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_t1iav")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_glfdn")
 text = "2"
+script = ExtResource("5_h4b8a")
 
 [node name="Three" type="Button" parent="Position/Calculator/HBoxContainer4"]
 layout_mode = 2
@@ -473,6 +502,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_bbl2b")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_t1iav")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_glfdn")
 text = "3"
+script = ExtResource("5_h4b8a")
 
 [node name="Minus" type="Button" parent="Position/Calculator/HBoxContainer4"]
 layout_mode = 2
@@ -494,6 +524,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_bbl2b")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_t1iav")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_glfdn")
 text = "-"
+script = ExtResource("5_h4b8a")
 
 [node name="HBoxContainer5" type="HBoxContainer" parent="Position/Calculator"]
 layout_mode = 2
@@ -519,6 +550,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_bbl2b")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_t1iav")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_glfdn")
 text = "0"
+script = ExtResource("5_h4b8a")
 
 [node name="Dot" type="Button" parent="Position/Calculator/HBoxContainer5"]
 layout_mode = 2
@@ -540,6 +572,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_bbl2b")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_t1iav")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_glfdn")
 text = "."
+script = ExtResource("5_h4b8a")
 
 [node name="Equals" type="Button" parent="Position/Calculator/HBoxContainer5"]
 layout_mode = 2
@@ -561,6 +594,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_bbl2b")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_t1iav")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_glfdn")
 text = "="
+script = ExtResource("7_37s3n")
 
 [node name="Plus" type="Button" parent="Position/Calculator/HBoxContainer5"]
 layout_mode = 2
@@ -582,3 +616,4 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_bbl2b")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_t1iav")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_glfdn")
 text = "+"
+script = ExtResource("5_h4b8a")
