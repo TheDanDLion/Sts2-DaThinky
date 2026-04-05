@@ -2,6 +2,7 @@ using DaThinky.Scenes;
 using Godot;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Logging;
+using MegaCrit.Sts2.Core.Nodes.GodotExtensions;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
 
 namespace DaThinky.Patches;
@@ -11,18 +12,20 @@ public static class CombatRoomPatch
 {
     private static bool _bubbleVisible;
     private static ThoughtBubble? _bubble;
+    private static ToggleButton? _button;
 
     [HarmonyPostfix]
     static void AddThoughtBubble(NCombatRoom __instance)
     {
         _bubbleVisible = false;
-
+        
         var thoughtBubbleScene = ResourceLoader.Load<PackedScene>("res://Scenes/ThoughtBubble.tscn");
         _bubble = thoughtBubbleScene.Instantiate<ThoughtBubble>();
         __instance.AddChild(_bubble);
 
         // Defer so the full scene tree (including NTopBar) is ready before we search it
-        Callable.From(() => AddButtonToTopBar(__instance)).CallDeferred();
+        if (_button == null || !_button.IsValid())
+            Callable.From(() => AddButtonToTopBar(__instance)).CallDeferred();
     }
 
     private static void AddButtonToTopBar(NCombatRoom instance)
@@ -34,27 +37,25 @@ public static class CombatRoomPatch
             Log.LogMessage(LogLevel.Warn, LogType.Generic, "DaThinky: Could not find Map button — cannot place calculator button next to it.");
             return;
         }
-
-        Log.LogMessage(LogLevel.Info, LogType.Generic, $"DaThinky: Found Map button under {mapButton.GetParent().Name}");
-
-        var button = new ToggleButton();
-        button.TextureNormal = ResourceLoader.Load<Texture2D>("res://Resources/Images/calculator.png");
-        button.IgnoreTextureSize = true;
-        button.StretchMode = TextureButton.StretchModeEnum.KeepAspectCentered;
+        
+        _button = new ToggleButton();
+        _button.TextureNormal = ResourceLoader.Load<Texture2D>("res://Resources/Images/calculator.png");
+        _button.IgnoreTextureSize = true;
+        _button.StretchMode = TextureButton.StretchModeEnum.KeepAspectCentered;
 
         if (mapButton is Control mapControl)
-            button.CustomMinimumSize = mapControl.Size * 0.75f;
-        button.SizeFlagsVertical = Control.SizeFlags.ShrinkCenter;
+            _button.CustomMinimumSize = mapControl.Size * 0.75f;
+        _button.SizeFlagsVertical = Control.SizeFlags.ShrinkCenter;
 
         var wrapper = new MarginContainer();
         wrapper.AddThemeConstantOverride("margin_right", 12);
-        wrapper.AddChild(button);
+        wrapper.AddChild(_button);
 
         var mapParent = mapButton.GetParent();
         mapParent.AddChild(wrapper);
         mapParent.MoveChild(wrapper, mapButton.GetIndex());
 
-        button.Pressed += ToggleBubbleVisibility;
+        _button.Pressed += ToggleBubbleVisibility;
     }
 
     internal static void ToggleBubbleVisibility()
