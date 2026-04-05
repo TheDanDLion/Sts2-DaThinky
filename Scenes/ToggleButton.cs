@@ -105,7 +105,7 @@ public partial class ToggleButton : TextureButton
 	{
 		float timer = 0f;
 		float startAngle = Rotation;
-		float targetAngle = startAngle + Mathf.Pi * 2f / 15f;
+		float targetAngle = startAngle + Mathf.Pi * 2f / 75f;
 		for (; timer < PressDownDur; timer += (float)GetProcessDeltaTime())
 		{
 			if (cancelToken.IsCancellationRequested) return;

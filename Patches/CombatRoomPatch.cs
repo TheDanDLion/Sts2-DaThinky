@@ -41,10 +41,9 @@ public static class CombatRoomPatch
         button.TextureNormal = ResourceLoader.Load<Texture2D>("res://Resources/Images/calculator.png");
         button.IgnoreTextureSize = true;
         button.StretchMode = TextureButton.StretchModeEnum.KeepAspectCentered;
-        button.CustomMinimumSize = mapButton is Control mapControl
-            ? mapControl.Size
-            : new Vector2(53, 48);
-        button.PivotOffset = button.CustomMinimumSize / 2f;
+
+        if (mapButton is Control mapControl)
+            button.CustomMinimumSize = mapControl.Size * 0.75f;
 
         var mapParent = mapButton.GetParent();
         mapParent.AddChild(button);
