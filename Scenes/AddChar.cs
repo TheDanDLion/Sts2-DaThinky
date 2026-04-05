@@ -16,7 +16,19 @@ public partial class AddChar : Button
 		{
 			var owner = GetOwner<ThoughtBubble>();
 			if (owner.JustSolved)
-				_lineEdit.Text = "";
+			{
+				var isOperator = Text is "+" or "-" or "x" or "÷" or "%" or "*";
+				if (isOperator)
+				{
+					var eqIndex = _lineEdit.Text.IndexOf(" = ", StringComparison.Ordinal);
+					var result = eqIndex >= 0 ? _lineEdit.Text[(eqIndex + 3)..] : "";
+					_lineEdit.Text = result;
+				}
+				else
+				{
+					_lineEdit.Text = "";
+				}
+			}
 			owner.JustSolved = false;
 			_lineEdit.Text += Text;
 		};
