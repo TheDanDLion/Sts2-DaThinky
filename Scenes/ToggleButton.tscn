@@ -3,9 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://by7f0oe422jdk" path="res://Resources/Images/calculator.png" id="1_x1s8e"]
 
 [node name="ToggleButton" type="TextureButton"]
-layout_mode = 1
-offset_right = 53.0
-offset_bottom = 48.0
+offset_right = 28.875
+offset_bottom = 28.0
 texture_normal = ExtResource("1_x1s8e")
 ignore_texture_size = true
 stretch_mode = 0
