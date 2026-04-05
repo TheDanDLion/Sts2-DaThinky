@@ -1,6 +1,3 @@
-using System;
-using System.Threading;
-using System.Threading.Tasks;
 using Godot;
 using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Nodes.CommonUi;
@@ -27,7 +24,7 @@ public partial class ToggleButton : TextureButton
 		ButtonUp += OnRelease;
 		Resized += () => PivotOffset = Size / 2f;
 
-		_hotkeyAction = () => EmitSignal(SignalName.Pressed);
+		_hotkeyAction = () => EmitSignal(BaseButton.SignalName.Pressed);
 		NHotkeyManager.Instance?.PushHotkeyPressedBinding(Program.CalculatorHotkey, _hotkeyAction);
 	}
 
@@ -87,9 +84,11 @@ public partial class ToggleButton : TextureButton
 		float startAngle = Rotation;
 		for (; timer < HoverAnimDur; timer += (float)GetProcessDeltaTime())
 		{
-			if (cancelToken.IsCancellationRequested) return;
+			if (cancelToken.IsCancellationRequested)
+				return;
 			Rotation = Mathf.LerpAngle(startAngle, HoverAngle, Ease.BackOut(timer / HoverAnimDur));
-			if (!GodotObject.IsInstanceValid(this) || !IsInsideTree()) return;
+			if (!IsInstanceValid(this) || !IsInsideTree())
+				return;
 			await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
 		}
 		Rotation = HoverAngle;
@@ -103,12 +102,14 @@ public partial class ToggleButton : TextureButton
 		float startV = Modulate.R;
 		for (; timer < UnhoverAnimDur; timer += (float)GetProcessDeltaTime())
 		{
-			if (cancelToken.IsCancellationRequested) return;
+			if (cancelToken.IsCancellationRequested)
+				return;
 			Rotation = Mathf.LerpAngle(startAngle, 0f, Ease.ElasticOut(timer / UnhoverAnimDur));
 			Scale = startScale.Lerp(Vector2.One, Ease.ExpoOut(timer / UnhoverAnimDur));
 			float v = Mathf.Lerp(startV, 1.0f, Ease.ExpoOut(timer / UnhoverAnimDur));
 			Modulate = new Color(v, v, v);
-			if (!GodotObject.IsInstanceValid(this) || !IsInsideTree()) return;
+			if (!IsInstanceValid(this) || !IsInsideTree())
+				return;
 			await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
 		}
 		Rotation = 0f;
@@ -123,12 +124,14 @@ public partial class ToggleButton : TextureButton
 		float targetAngle = startAngle + Mathf.Pi / 9f;
 		for (; timer < PressDownDur; timer += (float)GetProcessDeltaTime())
 		{
-			if (cancelToken.IsCancellationRequested) return;
+			if (cancelToken.IsCancellationRequested)
+				return;
 			float t = Ease.CubicOut(timer / PressDownDur);
 			Rotation = Mathf.LerpAngle(startAngle, targetAngle, t);
 			float v = Mathf.Lerp(1.1f, 0.4f, t);
 			Modulate = new Color(v, v, v);
-			if (!GodotObject.IsInstanceValid(this) || !IsInsideTree()) return;
+			if (!IsInstanceValid(this) || !IsInsideTree())
+				return;
 			await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
 		}
 		Rotation = targetAngle;

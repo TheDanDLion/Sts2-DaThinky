@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using DaThinky.Scenes;
 
 public partial class AC : Button
 {
@@ -10,6 +11,10 @@ public partial class AC : Button
 		_lineEdit = GetOwner().GetNode<LineEdit>("%CalculationLine");
 
 		// add the text of the number to the line edit
-		Pressed += () => _lineEdit.Text = "";
+		Pressed += () =>
+		{
+			_lineEdit.Text = "";
+			GetOwner<ThoughtBubble>().JustSolved = true;
+		};
 	}
 }

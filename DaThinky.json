@@ -2,10 +2,10 @@
   "id": "DaThinky",
   "name": "DaThinky",
   "author": "dandylion1740",
-  "description": "Adds helpful tools, right now it's just a calculator",
-  "version": "v0.0.1",
+  "description": "Adds a calculator that can be displayed during combat via the bar at the top.",
+  "version": "v0.1.0",
   "has_pck": true,
   "has_dll": true,
-  "dependencies": [],
+  "dependencies": ["BaseLib"],
   "affects_gameplay": false
 }

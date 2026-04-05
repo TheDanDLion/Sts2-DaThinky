@@ -1,5 +1,4 @@
 using Godot;
-using MegaCrit.Sts2.Core.Logging;
 
 namespace DaThinky.Scenes;
 
