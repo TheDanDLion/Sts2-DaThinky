@@ -1,7 +1,9 @@
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 using Godot;
 using MegaCrit.Sts2.Core.Helpers;
+using MegaCrit.Sts2.Core.Nodes.CommonUi;
 
 namespace DaThinky.Scenes;
 
@@ -15,6 +17,7 @@ public partial class ToggleButton : TextureButton
 	private CancellationTokenSource? _hoverToken;
 	private CancellationTokenSource? _unhoverToken;
 	private CancellationTokenSource? _pressToken;
+	private Action? _hotkeyAction;
 
 	public override void _Ready()
 	{
@@ -23,6 +26,9 @@ public partial class ToggleButton : TextureButton
 		ButtonDown += OnPress;
 		ButtonUp += OnRelease;
 		Resized += () => PivotOffset = Size / 2f;
+
+		_hotkeyAction = () => EmitSignal(SignalName.Pressed);
+		NHotkeyManager.Instance?.PushHotkeyPressedBinding(Program.CalculatorHotkey, _hotkeyAction);
 	}
 
 	public override void _ExitTree()
@@ -30,6 +36,8 @@ public partial class ToggleButton : TextureButton
 		_hoverToken?.Cancel();
 		_unhoverToken?.Cancel();
 		_pressToken?.Cancel();
+		if (_hotkeyAction != null)
+			NHotkeyManager.Instance?.RemoveHotkeyPressedBinding(Program.CalculatorHotkey, _hotkeyAction);
 	}
 
 	private void UpdatePivot() => PivotOffset = Size / 2f;
