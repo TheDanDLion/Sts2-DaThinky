@@ -152,10 +152,12 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0, 0, 0, 0.4509804)
 theme_override_font_sizes/font_size = 16
 theme_override_styles/normal = ExtResource("5_78lqr")
 theme_override_styles/read_only = SubResource("StyleBoxEmpty_s3s1w")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_tvu4m")
+placeholder_text = "11*2 = 22"
 alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Position/Calculator"]

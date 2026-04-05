@@ -15,6 +15,8 @@ public partial class ThoughtBubble : Control
 	private Control _thoughtBubble = null!;
 	private Control _calculator = null!;
 
+	private LineEdit _calcLineEdit = null!;
+	
 	public bool JustSolved;
 	
 	public override void _Ready()
@@ -28,6 +30,7 @@ public partial class ThoughtBubble : Control
 		_dot2 = GetNode<Control>("%Dot2");
 		_thoughtBubble = GetNode<Control>("%ThoughtBubble");
 		_calculator = GetNode<Control>("%Calculator");
+		_calcLineEdit = GetNode<LineEdit>("%CalculationLine");
 		
 		// Hide bubble so it does not appear initially. We set modularity so we can do a lil fade
 		_dot1.Modulate = Colors.Transparent;
@@ -49,6 +52,9 @@ public partial class ThoughtBubble : Control
 		
 		var tweenCalc = CreateTween();
 		tweenCalc.TweenProperty(_calculator, "modulate", Colors.White, _fade3).SetTrans(Tween.TransitionType.Sine);
+		
+		// when showing the bubble, clear the LineEdit so the user always starts with a clean slate
+		_calcLineEdit.Text = "";
 	}
 
 	public void HideBubble()
