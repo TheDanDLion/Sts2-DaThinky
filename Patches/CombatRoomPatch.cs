@@ -44,10 +44,15 @@ public static class CombatRoomPatch
 
         if (mapButton is Control mapControl)
             button.CustomMinimumSize = mapControl.Size * 0.75f;
+        button.SizeFlagsVertical = Control.SizeFlags.ShrinkCenter;
+
+        var wrapper = new MarginContainer();
+        wrapper.AddThemeConstantOverride("margin_right", 12);
+        wrapper.AddChild(button);
 
         var mapParent = mapButton.GetParent();
-        mapParent.AddChild(button);
-        mapParent.MoveChild(button, mapButton.GetIndex());
+        mapParent.AddChild(wrapper);
+        mapParent.MoveChild(wrapper, mapButton.GetIndex());
 
         button.Pressed += ToggleBubbleVisibility;
     }

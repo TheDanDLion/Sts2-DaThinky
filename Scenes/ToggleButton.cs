@@ -22,6 +22,7 @@ public partial class ToggleButton : TextureButton
 		MouseExited += OnUnhover;
 		ButtonDown += OnPress;
 		ButtonUp += OnRelease;
+		Resized += () => PivotOffset = Size / 2f;
 	}
 
 	public override void _ExitTree()
@@ -31,8 +32,11 @@ public partial class ToggleButton : TextureButton
 		_pressToken?.Cancel();
 	}
 
+	private void UpdatePivot() => PivotOffset = Size / 2f;
+
 	private void OnHover()
 	{
+		UpdatePivot();
 		_unhoverToken?.Cancel();
 		_hoverToken?.Cancel();
 		Scale = Vector2.One * 1.1f;
@@ -43,6 +47,7 @@ public partial class ToggleButton : TextureButton
 
 	private void OnUnhover()
 	{
+		UpdatePivot();
 		_hoverToken?.Cancel();
 		_pressToken?.Cancel();
 		_unhoverToken?.Cancel();
@@ -52,6 +57,7 @@ public partial class ToggleButton : TextureButton
 
 	private void OnPress()
 	{
+		UpdatePivot();
 		_hoverToken?.Cancel();
 		_pressToken?.Cancel();
 		_pressToken = new CancellationTokenSource();
@@ -60,6 +66,7 @@ public partial class ToggleButton : TextureButton
 
 	private void OnRelease()
 	{
+		UpdatePivot();
 		_pressToken?.Cancel();
 		_hoverToken?.Cancel();
 		_hoverToken = new CancellationTokenSource();
@@ -105,7 +112,7 @@ public partial class ToggleButton : TextureButton
 	{
 		float timer = 0f;
 		float startAngle = Rotation;
-		float targetAngle = startAngle + Mathf.Pi * 2f / 75f;
+		float targetAngle = startAngle + Mathf.Pi / 9f;
 		for (; timer < PressDownDur; timer += (float)GetProcessDeltaTime())
 		{
 			if (cancelToken.IsCancellationRequested) return;
