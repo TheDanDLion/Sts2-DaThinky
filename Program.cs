@@ -1,5 +1,7 @@
-using Godot;
+using System.Reflection;
+using Godot.Bridge;
 using HarmonyLib;
+using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Modding;
 
 namespace DaThinky;
@@ -8,11 +10,13 @@ namespace DaThinky;
 public class Program
 {
 	private const string ModId = "Sts2-DaThinky";
-
-	public static MegaCrit.Sts2.Core.Logging.Logger Logger { get; } = new(ModId, MegaCrit.Sts2.Core.Logging.LogType.Generic);
-
+	
 	public static void Initialize()
 	{
+		// This line is required in order to load the default font within this assembly
+		ScriptManagerBridge.LookupScriptsInAssembly(Assembly.GetExecutingAssembly());
+
+		Log.LogMessage(LogLevel.Debug, LogType.Generic, "Initializing DaThinky harmony patches");
 		Harmony harmony = new(ModId);
 		harmony.PatchAll();
 	}

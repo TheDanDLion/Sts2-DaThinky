@@ -1,10 +1,53 @@
-[gd_scene load_steps=4 format=3 uid="uid://cjkno7ck1v6op"]
+[gd_scene load_steps=26 format=3 uid="uid://cjkno7ck1v6op"]
 
 [ext_resource type="Texture2D" uid="uid://xc6c6jg36e4o" path="res://Resources/Images/ThoughBubble1.png" id="1_a6o1i"]
+[ext_resource type="Script" uid="uid://cvod4hgewrmpr" path="res://Scenes/ThoughtBubble.cs" id="1_ppmkj"]
 [ext_resource type="Texture2D" uid="uid://64nrh6gg86to" path="res://Resources/Images/ThoughBubble2.png" id="2_ppmkj"]
 [ext_resource type="Texture2D" uid="uid://cr1g6knukimuu" path="res://Resources/Images/ThoughBubble3.png" id="3_h4b8a"]
 
-[node name="Control" type="Control"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h4b8a"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_78lqr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_37s3n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_256ou"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d0yju"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bqxmv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u0v5f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8fwlo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sufgq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gy5ix"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ppmkj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cct8q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_khota"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lgpi2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_78sno"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2kqha"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q4yrx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bbl2b"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t1iav"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_glfdn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wpoby"]
+
+[node name="ThoughtBubble" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,17 +55,19 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+script = ExtResource("1_ppmkj")
 
-[node name="Control" type="Control" parent="."]
+[node name="Position" type="Control" parent="."]
 layout_mode = 1
-anchor_left = 0.45
-anchor_top = 0.3
-anchor_right = 0.45
-anchor_bottom = 0.3
+anchor_left = 0.44
+anchor_top = 0.35
+anchor_right = 0.44
+anchor_bottom = 0.35
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ThoughtBubble" type="TextureRect" parent="Control"]
+[node name="ThoughtBubble" type="TextureRect" parent="Position"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -31,8 +76,8 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -251.0
 offset_top = -200.0
-offset_right = 251.0
-offset_bottom = 200.0
+offset_right = 149.0
+offset_bottom = 120.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_a6o1i")
@@ -40,7 +85,8 @@ expand_mode = 2
 stretch_mode = 4
 flip_h = true
 
-[node name="ThoughtBubble2" type="TextureRect" parent="Control"]
+[node name="Dot2" type="TextureRect" parent="Position"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -49,8 +95,8 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -251.0
 offset_top = -200.0
-offset_right = 251.0
-offset_bottom = 200.0
+offset_right = 149.0
+offset_bottom = 120.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_ppmkj")
@@ -58,7 +104,8 @@ expand_mode = 2
 stretch_mode = 4
 flip_h = true
 
-[node name="ThoughtBubble3" type="TextureRect" parent="Control"]
+[node name="Dot1" type="TextureRect" parent="Position"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -67,8 +114,8 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -251.0
 offset_top = -200.0
-offset_right = 251.0
-offset_bottom = 200.0
+offset_right = 149.0
+offset_bottom = 120.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_h4b8a")
@@ -76,134 +123,461 @@ expand_mode = 2
 stretch_mode = 4
 flip_h = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+[node name="Calculator" type="VBoxContainer" parent="Position"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -117.25
-offset_top = -109.0
-offset_right = 159.0
-offset_bottom = 103.0
+offset_left = -167.79999
+offset_top = -131.0
+offset_right = 82.400024
+offset_bottom = 44.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 5
 
-[node name="CalculationLine" type="LineEdit" parent="Control/VBoxContainer"]
+[node name="CalculationLine" type="LineEdit" parent="Position/Calculator"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 12
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Position/Calculator"]
 layout_mode = 2
+theme_override_constants/separation = 0
 
-[node name="LeftParentheses" type="Button" parent="Control/VBoxContainer/HBoxContainer"]
+[node name="LeftParentheses" type="Button" parent="Position/Calculator/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxEmpty_h4b8a")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_78lqr")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_37s3n")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_256ou")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_d0yju")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_bqxmv")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_u0v5f")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_8fwlo")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_sufgq")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_gy5ix")
 text = "("
 
-[node name="RightParentheses" type="Button" parent="Control/VBoxContainer/HBoxContainer"]
+[node name="RightParentheses" type="Button" parent="Position/Calculator/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ppmkj")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_cct8q")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_khota")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_lgpi2")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_78sno")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_2kqha")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_q4yrx")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_bbl2b")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_t1iav")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_glfdn")
 text = ")"
 
-[node name="Modulo" type="Button" parent="Control/VBoxContainer/HBoxContainer"]
+[node name="Modulo" type="Button" parent="Position/Calculator/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ppmkj")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_cct8q")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_khota")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_lgpi2")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_78sno")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_2kqha")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_q4yrx")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_bbl2b")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_t1iav")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_glfdn")
 text = "%"
 
-[node name="AC" type="Button" parent="Control/VBoxContainer/HBoxContainer"]
+[node name="AC" type="Button" parent="Position/Calculator/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wpoby")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_cct8q")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_khota")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_lgpi2")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_78sno")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_2kqha")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_q4yrx")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_bbl2b")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_t1iav")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_glfdn")
 text = "AC"
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Control/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="Position/Calculator"]
 layout_mode = 2
+theme_override_constants/separation = 0
 
-[node name="Seven" type="Button" parent="Control/VBoxContainer/HBoxContainer2"]
+[node name="Seven" type="Button" parent="Position/Calculator/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wpoby")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_cct8q")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_khota")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_lgpi2")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_78sno")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_2kqha")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_q4yrx")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_bbl2b")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_t1iav")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_glfdn")
 text = "7"
 
-[node name="Eight" type="Button" parent="Control/VBoxContainer/HBoxContainer2"]
+[node name="Eight" type="Button" parent="Position/Calculator/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wpoby")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_cct8q")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_khota")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_lgpi2")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_78sno")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_2kqha")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_q4yrx")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_bbl2b")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_t1iav")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_glfdn")
 text = "8"
 
-[node name="Nine" type="Button" parent="Control/VBoxContainer/HBoxContainer2"]
+[node name="Nine" type="Button" parent="Position/Calculator/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wpoby")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_cct8q")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_khota")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_lgpi2")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_78sno")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_2kqha")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_q4yrx")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_bbl2b")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_t1iav")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_glfdn")
 text = "9"
 
-[node name="Divide" type="Button" parent="Control/VBoxContainer/HBoxContainer2"]
+[node name="Divide" type="Button" parent="Position/Calculator/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wpoby")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_cct8q")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_khota")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_lgpi2")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_78sno")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_2kqha")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_q4yrx")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_bbl2b")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_t1iav")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_glfdn")
 text = "÷"
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="Control/VBoxContainer"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="Position/Calculator"]
 layout_mode = 2
+theme_override_constants/separation = 0
 
-[node name="Four" type="Button" parent="Control/VBoxContainer/HBoxContainer3"]
+[node name="Four" type="Button" parent="Position/Calculator/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wpoby")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_cct8q")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_khota")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_lgpi2")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_78sno")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_2kqha")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_q4yrx")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_bbl2b")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_t1iav")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_glfdn")
 text = "4"
 
-[node name="Five" type="Button" parent="Control/VBoxContainer/HBoxContainer3"]
+[node name="Five" type="Button" parent="Position/Calculator/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wpoby")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_cct8q")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_khota")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_lgpi2")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_78sno")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_2kqha")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_q4yrx")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_bbl2b")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_t1iav")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_glfdn")
 text = "5"
 
-[node name="Six" type="Button" parent="Control/VBoxContainer/HBoxContainer3"]
+[node name="Six" type="Button" parent="Position/Calculator/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wpoby")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_cct8q")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_khota")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_lgpi2")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_78sno")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_2kqha")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_q4yrx")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_bbl2b")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_t1iav")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_glfdn")
 text = "6"
 
-[node name="Multiply" type="Button" parent="Control/VBoxContainer/HBoxContainer3"]
+[node name="Multiply" type="Button" parent="Position/Calculator/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wpoby")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_cct8q")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_khota")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_lgpi2")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_78sno")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_2kqha")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_q4yrx")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_bbl2b")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_t1iav")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_glfdn")
 text = "x"
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="Control/VBoxContainer"]
+[node name="HBoxContainer4" type="HBoxContainer" parent="Position/Calculator"]
 layout_mode = 2
+theme_override_constants/separation = 0
 
-[node name="One" type="Button" parent="Control/VBoxContainer/HBoxContainer4"]
+[node name="One" type="Button" parent="Position/Calculator/HBoxContainer4"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wpoby")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_cct8q")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_khota")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_lgpi2")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_78sno")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_2kqha")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_q4yrx")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_bbl2b")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_t1iav")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_glfdn")
 text = "1"
 
-[node name="Two" type="Button" parent="Control/VBoxContainer/HBoxContainer4"]
+[node name="Two" type="Button" parent="Position/Calculator/HBoxContainer4"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wpoby")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_cct8q")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_khota")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_lgpi2")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_78sno")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_2kqha")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_q4yrx")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_bbl2b")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_t1iav")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_glfdn")
 text = "2"
 
-[node name="Three" type="Button" parent="Control/VBoxContainer/HBoxContainer4"]
+[node name="Three" type="Button" parent="Position/Calculator/HBoxContainer4"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wpoby")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_cct8q")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_khota")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_lgpi2")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_78sno")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_2kqha")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_q4yrx")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_bbl2b")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_t1iav")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_glfdn")
 text = "3"
 
-[node name="Minus" type="Button" parent="Control/VBoxContainer/HBoxContainer4"]
+[node name="Minus" type="Button" parent="Position/Calculator/HBoxContainer4"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wpoby")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_cct8q")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_khota")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_lgpi2")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_78sno")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_2kqha")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_q4yrx")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_bbl2b")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_t1iav")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_glfdn")
 text = "-"
 
-[node name="HBoxContainer5" type="HBoxContainer" parent="Control/VBoxContainer"]
+[node name="HBoxContainer5" type="HBoxContainer" parent="Position/Calculator"]
 layout_mode = 2
+theme_override_constants/separation = 0
 
-[node name="Zero" type="Button" parent="Control/VBoxContainer/HBoxContainer5"]
+[node name="Zero" type="Button" parent="Position/Calculator/HBoxContainer5"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wpoby")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_cct8q")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_khota")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_lgpi2")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_78sno")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_2kqha")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_q4yrx")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_bbl2b")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_t1iav")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_glfdn")
 text = "0"
 
-[node name="Dot" type="Button" parent="Control/VBoxContainer/HBoxContainer5"]
+[node name="Dot" type="Button" parent="Position/Calculator/HBoxContainer5"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wpoby")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_cct8q")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_khota")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_lgpi2")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_78sno")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_2kqha")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_q4yrx")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_bbl2b")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_t1iav")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_glfdn")
 text = "."
 
-[node name="Equals" type="Button" parent="Control/VBoxContainer/HBoxContainer5"]
+[node name="Equals" type="Button" parent="Position/Calculator/HBoxContainer5"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wpoby")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_cct8q")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_khota")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_lgpi2")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_78sno")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_2kqha")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_q4yrx")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_bbl2b")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_t1iav")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_glfdn")
 text = "="
 
-[node name="Plus" type="Button" parent="Control/VBoxContainer/HBoxContainer5"]
+[node name="Plus" type="Button" parent="Position/Calculator/HBoxContainer5"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wpoby")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_cct8q")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_khota")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_lgpi2")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_78sno")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_2kqha")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_q4yrx")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_bbl2b")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_t1iav")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_glfdn")
 text = "+"
