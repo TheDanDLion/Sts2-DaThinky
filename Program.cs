@@ -15,7 +15,7 @@ public class Program
 	{
 		// This line is required in order to load the default font within this assembly
 		ScriptManagerBridge.LookupScriptsInAssembly(Assembly.GetExecutingAssembly());
-
+		
 		Log.LogMessage(LogLevel.Debug, LogType.Generic, "Initializing DaThinky harmony patches");
 		Harmony harmony = new(ModId);
 		harmony.PatchAll();
